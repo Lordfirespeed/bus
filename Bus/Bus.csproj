@@ -3,13 +3,16 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>dev.lordfirespeed.bus</AssemblyName>
-        
-        <Id>Lordfirespeed.Bus</Id>
-        <Product>Lordfirespeed.Bus</Product>
-        <PackageId>Lordfirespeed.Bus</PackageId>
-        <Description>Event firing and listening framework, based on the event bus concept</Description>
-        
         <RootNamespace>Bus</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Id>Lordfirespeed.Bus</Id>
+        <PackageId>Lordfirespeed.Bus</PackageId>
+
+        <Product>Bus</Product>
+        <Description>Event firing and listening framework, based on the event bus concept</Description>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <!-- Development dependencies -->
