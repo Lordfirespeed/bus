@@ -15,11 +15,11 @@ internal class EventListenerFactoryManager
     private static EventListenerFactoryManager? _instance;
     public static EventListenerFactoryManager Instance => _instance ??= new();
 
-    private const string RuntimeEmittedAssemblyName = "com.sigurd.sigurd.emitted-event-listeners";
+    private const string RuntimeEmittedAssemblyName = "dev.lordfirespeed.bus.emitted-event-listeners";
     protected AssemblyBuilder? RuntimeEmittedAssembly;
     protected ModuleBuilder? RuntimeEmittedModule;
 
-    private const string RuntimeEmitToNamespace = "Sigurd.EventBus.RuntimeEmitted";
+    private const string RuntimeEmitToNamespace = "Bus.RuntimeEmitted";
 
     delegate IEventListener EventListenerFactory(object? target);
 

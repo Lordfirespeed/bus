@@ -1,6 +1,6 @@
 // The contents of this file are largely based upon https://github.com/MinecraftForge/EventBus/tree/ec01e75bf78ce21b00e4675ca4370d591b9d1457
-// Forge Development LLC licenses EventBus to the Sigurd Team under the LGPL-2.1-only license.
-// The Sigurd Team licenses this file to you under the LGPL-3.0-or-later license.
+// Forge Development LLC licenses EventBus to Lordfirespeed under the LGPL-2.1-only license.
+// Lordfirespeed licenses this file to you under the LGPL-3.0-or-later license.
 
 using System;
 
