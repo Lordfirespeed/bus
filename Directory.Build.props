@@ -26,6 +26,11 @@
         <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="$(ProjectDir)../README.md" Pack="true" PackagePath="/"/>
+        <None Include="$(ProjectDir)../LICENSE" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
     <!-- MinVer -->
     <PropertyGroup>
         <MinVerDefaultPreReleaseIdentifiers>dev</MinVerDefaultPreReleaseIdentifiers>
