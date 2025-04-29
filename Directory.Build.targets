@@ -1,0 +1,14 @@
+<Project>
+
+    <!-- prevent referenced assemblies from being copied to output folders -->
+    <Target
+        Name="ClearReferenceCopyLocalPaths"
+        AfterTargets="ResolveAssemblyReferences"
+        Condition="$(ClearCopyLocalPaths)"
+    >
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)"/>
+        </ItemGroup>
+    </Target>
+
+</Project>
