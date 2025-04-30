@@ -8,7 +8,6 @@ public interface IEventListener
     /// <summary>
     /// Invoke the message
     /// </summary>
-    /// <param name="sender"></param>
     /// <param name="message">Message to deliver</param>
     void Invoke(Event message);
 }
