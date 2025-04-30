@@ -1,0 +1,52 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Trigger the workflow when called by another workflow
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ inputs.ref || null }}
+          fetch-depth: 0
+          filter: tree:0
+          submodules: recursive
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.1.0
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release
+
+      - name: Test
+        run: dotnet test -c Release --no-build --verbosity normal
+
+      - name: Pack
+        run: dotnet pack -c Release --no-build
+
+      - name: Upload nupkg Artifact
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          name: nupkg-build
+          path: ./*/bin/Release/*.nupkg
