@@ -132,6 +132,17 @@ public class EventBus : IEventBus
                 $"Event handler methods must declare exactly one parameter whose type is a subtype of {nameof(Event)}."
             );
 
+        try {
+            _configuration.ClassChecker(eventType);
+        }
+        catch (ArgumentOutOfRangeException e) {
+            throw new ArgumentOutOfRangeException(
+                $"Method {method} is annotated with {nameof(SubscribeEventAttribute)},\n" +
+                $"but declares a parameter of type {eventType}, which is not valid for this bus.",
+                e
+            );
+        }
+
         Register(eventType, target, method);
     }
 
